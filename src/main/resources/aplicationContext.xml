@@ -4,8 +4,25 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--Creacion de la dependencia InformeFinanciero-->
+    <bean id="miInformeFinanciero" class="com.yair.inventario.services.InformeFinancieroImp">
+
+    </bean>
+
     <bean id="miProveedorNacional"
           class="com.yair.inventario.services.ProveedorNacional_Impl">
+        <!--Inyecion de la dependencia por constructor de InformeFinanciero-->
+        <constructor-arg ref="miInformeFinanciero"></constructor-arg>
+
+        <!--Inyeccion de campo clase: ProveedorNacional_Imp, campo valor: emailSoporte -->
+        <property name="emailSoporte" value="contacto@proveedor.com.mx" />
     </bean>
+
+    <bean id="miProveedorInternacional" class="com.yair.inventario.services.ProveedorInternacional_Imp">
+        <!--Inyeccion por metodo setter | ref = "idBeanDel Informe financiero-->
+        <property name="informeService" ref="miInformeFinanciero" ></property>
+    </bean>
+
+
 
 </beans>

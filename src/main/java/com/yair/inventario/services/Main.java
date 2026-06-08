@@ -8,9 +8,19 @@ public class Main {
 
         ClassPathXmlApplicationContext contexto = new ClassPathXmlApplicationContext("aplicationContext.xml");
 
-        IProveedorService ProveedorNacional = contexto.getBean("miProveedorNacional", IProveedorService.class);
+        ProveedorNacional_Impl ProveedorNacional = contexto.getBean("miProveedorNacional", ProveedorNacional_Impl.class);
 
+        System.out.println("-------Proveddores Nacionales-----");
         System.out.println(ProveedorNacional.getDetallesProveedor());
+        System.out.println("Soporte/Ayuda: " + ProveedorNacional.getEmailSoporte());
+        System.out.println("-----------------------------");
+
+
+        System.out.println("-------Proveddor Internacional-----");
+        ProveedorInternacional_Imp proveedorInternacionalImp = contexto.getBean("miProveedorInternacional", ProveedorInternacional_Imp.class);
+        System.out.println(proveedorInternacionalImp.getDetallesProveedor());
+
+
 
         contexto.close();
     }
