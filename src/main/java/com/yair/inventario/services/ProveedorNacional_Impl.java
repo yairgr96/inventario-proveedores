@@ -1,5 +1,9 @@
 package com.yair.inventario.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component("miProveedorNacional")
 public class ProveedorNacional_Impl implements IProveedorService {
 
     private InformeService informeService;
@@ -14,6 +18,7 @@ public class ProveedorNacional_Impl implements IProveedorService {
     }
 
     //Inyeccion de dependencia por CONSTRUCTOR
+    @Autowired
     public ProveedorNacional_Impl(InformeService informeService){
         this.informeService = informeService;
     }

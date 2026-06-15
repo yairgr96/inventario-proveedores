@@ -5,18 +5,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/context
-           http://www.springframework.org/schema/context/spring-context.xsd"> <context:property-placeholder location="classpath:datosEmpresa.properties"/>
+           http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="miInformeFinanciero" class="com.yair.inventario.services.InformeFinancieroImp">
-    </bean>
-
-    <bean id="miProveedorNacional" class="com.yair.inventario.services.ProveedorNacional_Impl">
-        <constructor-arg ref="miInformeFinanciero"></constructor-arg>
-        <property name="emailSoporte" value="${proveedor.email}"/>
-    </bean>
-
-    <bean id="miProveedorInternacional" class="com.yair.inventario.services.ProveedorInternacional_Imp">
-        <property name="informeService" ref="miInformeFinanciero" ></property>
-    </bean>
+    <context:component-scan base-package="com.yair.inventario.services" />
 
 </beans>

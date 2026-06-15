@@ -1,5 +1,8 @@
 package com.yair.inventario.services;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class InformeFinancieroImp implements InformeService{
 
 

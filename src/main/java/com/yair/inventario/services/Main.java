@@ -12,16 +12,7 @@ public class Main {
 
         System.out.println("-------Proveddores Nacionales-----");
         System.out.println(ProveedorNacional.getDetallesProveedor());
-        System.out.println("Soporte/Ayuda: " + ProveedorNacional.getEmailSoporte());
         System.out.println("-----------------------------");
-
-
-        System.out.println("-------Proveddor Internacional-----");
-        ProveedorInternacional_Imp proveedorInternacionalImp = contexto.getBean("miProveedorInternacional", ProveedorInternacional_Imp.class);
-        System.out.println(proveedorInternacionalImp.getDetallesProveedor());
-
-
-
         contexto.close();
     }
 }
