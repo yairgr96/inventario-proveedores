@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Scope("singleton")
 public class ProveedorNacional_Impl implements IProveedorService {
 
-    @Autowired
+
     /*@Qualifier("miInformeTrimestral")*/
     private InformeService informeService;
     private String emailSoporte;
@@ -25,7 +25,8 @@ public class ProveedorNacional_Impl implements IProveedorService {
     }
 
     //Inyeccion de dependencia por CONSTRUCTOR
-    public ProveedorNacional_Impl(InformeService informeService){
+    @Autowired
+    public ProveedorNacional_Impl(@Qualifier("informeFinancieroImp") InformeService informeService){
         this.informeService = informeService;
     }
 
